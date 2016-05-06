@@ -21,7 +21,7 @@ module Spree
     #
     # This is a noop if the item is not persisted.
     def update
-      return @item unless item.persisted?
+      return @item unless item.try :persisted?
 
       # Promotion adjustments must be applied first, then tax adjustments.
       # This fits the criteria for VAT tax as outlined here:
